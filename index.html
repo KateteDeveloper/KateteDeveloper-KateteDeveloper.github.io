@@ -518,6 +518,22 @@ window.addEventListener('load', ()=>{
 // project data
 const projects = [
   {
+    name:"꾹 (GGUK)", period:"2026.06 ~ 진행중", status:"Play 심사중",
+    shot:"images/gguk_card.jpg", logo:"images/logos/gguk-logo.png",
+    desc:"인스타그램 게시물의 위치·장소 정보를 기록하고, 딥링크 기반 친구 초대로 함께 공유하는 안드로이드 앱.",
+    tags:["Kotlin","Compose","딥링크"],
+    more:[
+      "12인 멀티플랫폼 팀(디자인 2·Android 3·iOS 3·백엔드 4)에서 Android 기여도 30%",
+      "MVI 아키텍처 초기 세팅",
+      "저장 탭(방 리스트·방 상세) 화면 개발, 지도 핀 표시 및 핀 클러스터링 구현",
+      "딥링크 기반 친구 초대 구현, 앱 미설치 시 스토어로 연결되는 예외 흐름까지 처리",
+      "바텀시트가 닫힐 때 상태가 초기화되는 구조적 문제 발견 → ViewModel/rememberSaveable로 끌어올리는 개선안을 디자이너와 협의해 제안",
+      "Claude Code 커스텀 스킬(/issue, /mino-spec)로 PRD → 스펙 → PR로 이어지는 파이프라인을 활용해 파트 간 소통 비용 절감",
+      "Google Play 출시 심사 진행 중"
+    ],
+    links:[]
+  },
+  {
     name:"LinkU (링큐)", period:"2025.07 ~ 진행중", status:"Play 비공개 테스트",
     shot:"images/linku_card.jpg", logo:"images/logos/linku-logo.svg",
     desc:"링크를 저장하면 자동 요약·태그를 붙이고, 맞춤 추천(큐레이션)과 원터치 공유 저장을 지원하는 안드로이드 앱.",
@@ -534,22 +550,6 @@ const projects = [
       "Google Play Console 출시 과정(테스트 배포, 스토어 등록, 심사 대응) 단독 전담"
     ],
     links:[["GitHub","https://github.com/KateteDeveloper"]]
-  },
-  {
-    name:"꾹 (GGUK)", period:"2026.06 ~ 진행중", status:"Play 심사중",
-    shot:"images/gguk_card.jpg", logo:"images/logos/gguk-logo.png",
-    desc:"인스타그램 게시물의 위치·장소 정보를 기록하고, 딥링크 기반 친구 초대로 함께 공유하는 안드로이드 앱.",
-    tags:["Kotlin","Compose","딥링크"],
-    more:[
-      "12인 멀티플랫폼 팀(디자인 2·Android 3·iOS 3·백엔드 4)에서 Android 기여도 30%",
-      "MVI 아키텍처 초기 세팅",
-      "저장 탭(방 리스트·방 상세) 화면 개발, 지도 핀 표시 및 핀 클러스터링 구현",
-      "딥링크 기반 친구 초대 구현, 앱 미설치 시 스토어로 연결되는 예외 흐름까지 처리",
-      "바텀시트가 닫힐 때 상태가 초기화되는 구조적 문제 발견 → ViewModel/rememberSaveable로 끌어올리는 개선안을 디자이너와 협의해 제안",
-      "Claude Code 커스텀 스킬(/issue, /mino-spec)로 PRD → 스펙 → PR로 이어지는 파이프라인을 활용해 파트 간 소통 비용 절감",
-      "Google Play 출시 심사 진행 중"
-    ],
-    links:[]
   },
   {
     name:"리루티 (LiRouti)", period:"2026.06 ~ 2026.08", status:"팀장",

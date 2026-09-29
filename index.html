@@ -85,7 +85,7 @@ a{color:inherit; text-decoration:none;}
 .hero-bg .b1{width:520px;height:520px; top:-160px; right:-140px;}
 .hero-bg .b2{width:360px;height:360px; bottom:-120px; left:-100px; opacity:.12;}
 
-.hero-tree{ position:absolute; right:-1%; top:230px; width:620px; max-width:48vw; z-index:-1; pointer-events:none; overflow:visible; }
+.hero-tree{ position:absolute; right:-1%; top:20px; width:620px; max-width:48vw; z-index:-1; pointer-events:none; overflow:visible; }
 .hero-tree img{ width:100%; display:block; }
 .hero-leaf{ position:absolute; opacity:0; animation:heroFall linear infinite; }
 @keyframes heroFall{
@@ -523,10 +523,15 @@ const projects = [
     desc:"링크를 저장하면 자동 요약·태그를 붙이고, 맞춤 추천(큐레이션)과 원터치 공유 저장을 지원하는 안드로이드 앱.",
     tags:["Kotlin","Compose","Retrofit2","Hilt"],
     more:[
-      "앱 전역 API 에러 처리 구조(ApiError sealed class, safeApiCall) 설계로 화면마다 제각각이던 에러 핸들링을 표준화",
-      "Compose NavHost 상태 미반영 버그(닉네임 실시간 미갱신) 직접 분석·해결",
-      "Share Intent 공유 기능과 딥링크 기반 화면 라우팅 구현으로 링크 저장 depth 단축",
-      "로그인·회원가입 모듈 전담, 로그아웃/INACTIVE 계정 복구 API·토큰 재발급 제한 로직 구현"
+      "로그인·회원가입 모듈 전담: 카카오(네이티브 SDK + Credential Manager)·구글 소셜 로그인, 이메일 OTP 인증, 다단계 회원가입, 약관 동의 바텀시트, 비밀번호 재설정, 로그아웃/INACTIVE 계정 복구 구현",
+      "앱 전역 API 에러 처리 구조(ApiError sealed class, safeApiCall) 설계로 화면마다 제각각이던 에러 핸들링 표준화",
+      "네트워크 인증 구조 리팩터링: @AuthClient/@PublicClient OkHttp 분리, TokenAuthenticator에 Mutex를 적용해 동시 401 응답 시 토큰 중복 재발급 문제 해결",
+      "SharedPreferences → DataStore 마이그레이션, 닉네임을 MainViewModel에서 중앙 관리해 NavHost 화면 간 실시간 미갱신 버그 해결",
+      "Share Intent(ACTION_SEND)·클립보드 진입 처리와 딥링크 라우팅으로 링크 저장 depth 단축",
+      "회원가입 완료 화면 제거 후 홈 직행 구조를 제안·반영해 가입 흐름 간소화",
+      "백엔드와 API 설계 협의: 약관 버전 관리 서버 위임, 프로필 수정 API를 부분 수정(PATCH) 방식으로 변경 요청",
+      "GitHub Actions CI/CD 구축, google-services.json 유출 시 git filter-repo로 히스토리 정리",
+      "Google Play Console 출시 과정(테스트 배포, 스토어 등록, 심사 대응) 단독 전담"
     ],
     links:[["GitHub","https://github.com/KateteDeveloper"]]
   },
@@ -536,9 +541,13 @@ const projects = [
     desc:"인스타그램 게시물의 위치·장소 정보를 기록하고, 딥링크 기반 친구 초대로 함께 공유하는 안드로이드 앱.",
     tags:["Kotlin","Compose","딥링크"],
     more:[
-      "저장 탭(방 리스트·방 상세) 화면 개발, 딥링크 기반 친구 초대 기능 구현",
-      "바텀시트가 상태를 저장하지 않는 구조적 문제 발견 → ViewModel/rememberSaveable로 끌어올려 개선 제안",
-      "Claude Code 스킬(/issue, /mino-spec) 기반 PRD-스펙-PR 파이프라인 경험"
+      "12인 멀티플랫폼 팀(디자인 2·Android 3·iOS 3·백엔드 4)에서 Android 기여도 30%",
+      "MVI 아키텍처 초기 세팅",
+      "저장 탭(방 리스트·방 상세) 화면 개발, 지도 핀 표시 및 핀 클러스터링 구현",
+      "딥링크 기반 친구 초대 구현, 앱 미설치 시 스토어로 연결되는 예외 흐름까지 처리",
+      "바텀시트가 닫힐 때 상태가 초기화되는 구조적 문제 발견 → ViewModel/rememberSaveable로 끌어올리는 개선안을 디자이너와 협의해 제안",
+      "Claude Code 커스텀 스킬(/issue, /mino-spec)로 PRD → 스펙 → PR로 이어지는 파이프라인을 활용해 파트 간 소통 비용 절감",
+      "Google Play 출시 심사 진행 중"
     ],
     links:[]
   },
@@ -546,11 +555,13 @@ const projects = [
     name:"리루티 (LiRouti)", period:"2026.06 ~ 2026.08", status:"팀장",
     shot:"images/lirouti_card.jpg", logo:"images/logos/lirouti-logo.png",
     desc:"친구와 함께 개인 루틴을 등록하고 알림으로 실천을 유도하는 루틴 형성 앱. Spring Boot 백엔드 총괄.",
-    tags:["Spring Boot","Firebase FCM","Android"],
+    tags:["Spring Boot","Java","Firebase FCM","Android"],
     more:[
-      "팀장으로서 4~5인 팀의 기획-개발 전 과정 총괄, 일정·역할 관리",
-      "마이페이지 담당 팀원의 API 구현 지연 시 역할 재분배, Firebase Admin SDK 연동해 FCM 알림 기능 직접 흡수·구현",
-      "Android 프론트 초기 세팅, 개인 루틴 화면 API 연동 지원",
+      "첫 Spring Boot 서버 프로젝트에서 팀장을 맡아 기획-개발 전 과정 총괄, 일정·역할 관리",
+      "개인 루틴 및 알림 API 개발 담당",
+      "마이페이지 담당 팀원의 API 구현 지연 시 역할 재분배, Firebase Admin SDK를 연동하고 SSH로 서버에 접속해 FCM 키를 등록하며 푸시 알림 기능 직접 구현",
+      "Android 프론트 초기 세팅, 개인 루틴 화면 API 연동 지원으로 프론트 병목 해소",
+      "백엔드 레포 docs 문서화",
       "UMC 데모데이(10th), 4th Busan NE(O)RDINARY FESTIVAL 발표"
     ],
     links:[["GitHub","https://github.com/lirouti/Li-routi_Backend"]]
@@ -559,9 +570,10 @@ const projects = [
     name:"FitBuddy", period:"2025.03 ~ 2025.11", status:"학술 게재",
     shot:"images/fitbuddy_card.jpg", logo:"images/logos/fitbuddy-logo.png",
     desc:"AI 챗봇이 사용자 정보를 분석해 맞춤 운동 루틴을 추천하고, 챌린지·캐릭터로 동기를 부여하는 코칭 앱.",
-    tags:["Node.js","PostgreSQL","GPT API"],
+    tags:["Node.js","PostgreSQL","GPT API","Android"],
     more:[
-      "Node.js·PostgreSQL 백엔드 전담(GPT API 연동), 프론트 공백 보완(챗봇 대화·홈 화면)",
+      "Node.js·PostgreSQL 백엔드 전담, OpenAI GPT API 연동으로 사용자 정보 기반 맞춤 운동 루틴 추천 기능 구현",
+      "프론트 공백 보완으로 Android 챗봇 대화·홈 화면 개발",
       "한국통신학회(ACK) 2025 학술발표대회 논문집(32권 2호) 공동저자 게재"
     ],
     links:[["GitHub","https://github.com/FitBuddy-challengers"],["논문","files/fitbuddy-paper.pdf"]]
@@ -572,8 +584,9 @@ const projects = [
     desc:"매일 새로운 글과 퀴즈, AI 대화로 사회초년생의 어휘력·문해력을 키우는 학습 서비스.",
     tags:["Android","Node.js","GPT API"],
     more:[
-      "Android 앱 풀스택(프론트+Node.js 서버) 단독 개발",
-      "사용자별 문해력 수준 맞춤 AI 프롬프트 수십 차례 반복 튜닝",
+      "Android 앱 + Node.js 서버 풀스택 단독 개발",
+      "매일 새로운 글, 퀴즈, AI 대화 기능 구현",
+      "사용자별 문해력 수준에 맞는 학습 글감을 생성하기 위해 GPT 프롬프트를 수십 차례 반복 튜닝",
       "한국통신학회(ACK) 2025 학술발표대회 공동저자 게재"
     ],
     links:[["GitHub","https://github.com/Malmungchi-2025"],["논문","files/malmungchi-paper.pdf"]]
@@ -664,7 +677,6 @@ const milestones = [
   svg += `<polyline class="line-path" points="${pts}" stroke="#006242" stroke-dasharray="${len}" stroke-dashoffset="${len}"/>`;
   milestones.forEach((m,i)=>{
     const px = x(i), py = y(m.level);
-    svg += `<circle class="line-dot" cx="${px}" cy="${py}" r="13" fill="#a0f669" opacity="0"/>`;
     svg += `<circle class="line-dot" cx="${px}" cy="${py}" r="6" fill="#006242" opacity="0"/>`;
     svg += `<text x="${px}" y="${py-20}" font-size="11.5" font-weight="800" fill="#0e1a15" text-anchor="middle" font-family="Paperlogy" opacity="0" class="line-dot">${m.title}</text>`;
     svg += `<text x="${px}" y="${H-padB+22}" font-size="11" font-weight="700" fill="#5b6a63" text-anchor="middle" font-family="Paperlogy">${m.date}</text>`;

@@ -77,6 +77,8 @@ a{color:inherit; text-decoration:none;}
   min-height:100svh; display:flex; flex-direction:column; justify-content:center;
   position:relative; padding-top:100px; padding-bottom:60px;
 }
+/* flex 열의 auto 마진 때문에 내용 폭으로 줄어 가운데 정렬되던 것을 막아 내비 로고와 왼쪽선을 맞춘다 */
+.hero > .wrap{ width:100%; }
 .hero-bg{ position:absolute; inset:0; z-index:-2; overflow:hidden; }
 .hero-bg span{
   position:absolute; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--lime), var(--green) 70%);
